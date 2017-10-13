@@ -1,9 +1,9 @@
 import unittest
 
-from password_locker import User
+from password_locker import User, Credentials
 
 
-class TestPassword_locker(unittest.TestCase):
+class TestUser(unittest.TestCase):
     """
     Test that defines test cases for the user class bevaviours
     """
@@ -41,8 +41,43 @@ class TestPassword_locker(unittest.TestCase):
         test_user = User("puppah","78945632","puppah@gmail.com")
         test_user.user_save()
         self.assertEqual(len(User.user_list),2)
+class TestCredentials(unittest.TestCase):
+    """
+    Test that define test cases for credentials.
+    """
+    def setUp(self):
+        """ 
+        set up method to run before each test cases
+        """
+        self.new_credential = Credentials("facebook", "jon88")
+
+    def test_init(self):
+        """
+        Test case to test if the object is initialized properly.
+        """
+
+        self.assertEqual(self.new_credential.account_name,"facebook")
+        self.assertEqual(self.new_credential.account_password,"jon88")
+    
+    # def test_user_login(self):
+    #     """
+    #     Test case to test if we can find a user by password.
+    #     """
+    #     self.new_user.user_save()
+    #     test_user = User("puppah","78945632","puppah@gmail.com")
+    #     test_user.user_save()
+    #     found_user = User.user_login("78945632")
+
+    #     self.assertEqual(found_user.password,test_user.password)
+
+    def test_save_account(self):
+        """
+        Test case to test if the credential object is saved in to credential_list.
+        """
+        self.new_credential.save_account()
+        self.assertEqual(len(Credentials.credential_list), 1)
 
 
 if __name__ == '__main__':
-  unittest.main(verbosity =2)
+  unittest.main(verbosity = 2)
 
