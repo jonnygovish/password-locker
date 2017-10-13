@@ -49,4 +49,10 @@ class Credentials:
     delete_account method removes a saved cretential from credential list.
     """
     Credentials.credential_list.remove(self)
-    
+
+  @classmethod
+  def display_accounts(cls):
+    """
+    Method that returns the credential list.
+    """
+    return cls.credential_list
