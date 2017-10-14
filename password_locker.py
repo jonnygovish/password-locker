@@ -1,4 +1,5 @@
 import random
+import string
 
 user_name =""
 user_password =""
@@ -56,3 +57,10 @@ class Credentials:
     Method that returns the credential list.
     """
     return cls.credential_list
+  def generate_password():
+    char = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+
+    gen_pass = "".join(random.choice(char) for _ in range(8))
+
+    return gen_pass
+  
