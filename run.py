@@ -14,4 +14,10 @@ def save_user(user):
   Function to save user.
   """
   user.user_save()
-  
+
+def create_credential(account_name, account_password):
+  """
+  Function to create a new credential.
+  """
+  new_credential = Credentials(account_name,account_password)
+  return new_credential
