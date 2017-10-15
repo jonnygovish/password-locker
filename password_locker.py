@@ -1,16 +1,15 @@
 import random
 import string
 
-user_name =""
-user_password =""
+# user_name =""
+# user_password =""
 global user_list
 class User:
   """
   Class that generates new instances of user
   """
-  global user_name
-  user_password
-  user_list = []
+
+  user_list = [] #empty user list
   def __init__(self, user_name, password,email):
     self.user_name = user_name
     self.password = password
@@ -21,6 +20,9 @@ class User:
     saves user object into user object.
     """
     User.user_list.append(self)
+  @classmethod
+  def display_users(cls):
+    return cls.user_list
 
 
 class Credentials:
@@ -33,6 +35,17 @@ class Credentials:
     self. account_name = account_name
     self.account_username = account_username
     self.account_password = account_password
+  @classmethod
+  def check_user_exist(cls,user_name,password):
+    """
+    Method that checks if a user exist from user list.
+    """
+    for user in User.user_list:
+      if user.user_name == user_name and user.password == password:
+        return True
+      return False
+
+  
 
   # @classmethod
   # def user_login(cls,password):
