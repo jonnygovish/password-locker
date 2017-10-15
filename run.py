@@ -42,14 +42,14 @@ def delete_account(credential):
   """
   Function to delete a credential.
   """
-  Credentials.delete_account()
+  credential.delete_account()
 
 def display_accounts():
   """
   Function that returns all the saved credential.
   """
   return Credentials.display_accounts()
-
+  
 def generate_password():
   """
   Function that generates random password.
