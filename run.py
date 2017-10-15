@@ -62,7 +62,9 @@ def main():
   print("Welcome to password locker")
   print('\n')
   while True:
-    short_code = input("Use this short codes: cu- create a new user account, ln - login into your account (if you already have a password locker account), ex - exit from password locker \n").lower()
+    print('.'* 60)  
+    short_code = input("Use this short codes: CU- create a new user account, LN - login into your account (if you already have a password locker account), EX - exit from password locker \n").lower()
+    print('.'* 60)
     
     if short_code == "ex":
         print("Come back again.......Goodbye!!")
@@ -102,13 +104,17 @@ def main():
         if sign_in == True:
             print(f"Hey,{user_name},how are you today?. What would you like to do?")
             while True:
-                short_code = input("Codes: ca - create an account or name of the site your want, da- display the list of your accounts or sites, ex- exit the site \n")
+                print('.'* 60)
+                short_code = input("Codes: CA - create an account or name of the site your want, DA- display the list of your accounts or sites, EX- exit the site \n").lower()
+                print('.'* 60)
                 if short_code == "ca":
                     print("Create new credentials")
                     print('*' * 30)
                     account_name = input("Account name/ Site name: ")
                     account_username = input("Site User Name: ")
+                    print('.'* 60)
                     password_option = input("Please choose between: (ep-enter existing password) or (gp-generate new password) \n")
+                    print('.'* 60)
                     while True:
                         if password_option == "ep":
                             account_password = input("Enter your password (minimum 8 characters): ")
@@ -129,13 +135,14 @@ def main():
                         
                         print('#' * 30)
                         for account in display_accounts():
-                            print(f"Site:{account.account_name} \n User Name:{account_username}\n Password:{account_password}")
+                            print(f" Site:{account.account_name} \n User Name:{account_username}\n Password:{account_password}")
+                            print('_'* 30)
                         print('#' * 30)
                     else:
                         print("Prrrra kata......you dnt have any accounts yet")
                         
                 elif short_code == "ex":
-                    print("Too bad that you have to leave......Do come again, Adios")
+                    print("Too bad that you have to leave......Do come again, Adios!!!!")
                     break
                 else:
                     print("Invalid Choice")
