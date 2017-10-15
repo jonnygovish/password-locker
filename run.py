@@ -129,10 +129,17 @@ def main():
                         
                         print('#' * 30)
                         for account in display_accounts():
-                            print(f"{account.account_name} \n {account_username}\n {account_password}")
+                            print(f"Site:{account.account_name} \n User Name:{account_username}\n Password:{account_password}")
                         print('#' * 30)
                     else:
                         print("Prrrra kata......you dnt have any accounts yet")
+                        
+                elif short_code == "ex":
+                    print("Too bad that you have to leave......Do come again, Adios")
+                    break
+                else:
+                    print("Invalid Choice")
+                    
                          
                     
 #                break
