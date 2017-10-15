@@ -15,6 +15,13 @@ def save_user(user):
   """
   user.user_save()
 
+def login_user(user_name,password):
+  """
+  function that checks whether a user exist and then login the user in.
+  """
+  check_user_exist = Credentials.check_user_exist(user_name,password)
+  return check_user_exist
+
 def create_credential(account_name,account_username, account_password):
   """
   Function to create a new credential.
@@ -70,6 +77,7 @@ def main():
         
         print(f"Hello,{user_name} your account has been created")
         print('\n')
+        print('-' * 30)
         
         
     break
