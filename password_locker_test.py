@@ -45,6 +45,10 @@ class TestUser(unittest.TestCase):
         test_user = User("puppah","78945632","puppah@gmail.com")
         test_user.user_save()
         self.assertEqual(len(User.user_list),2)
+
+    def test_display_users(self):
+        self.assertEqual(User.display_users(),User.user_list)
+
 class TestCredentials(unittest.TestCase):
     """
     Test that define test cases for credentials.
@@ -77,6 +81,16 @@ class TestCredentials(unittest.TestCase):
 
     def tearDown(self):
         Credentials.credential_list = []
+    # def test_check_user_exist(self):
+    #     """
+    #     test case to test if a user exists, returns true if a user exists,otherwise false.
+    #     """
+    #     self.User.new_user.user_save()
+    #     test_user = User("jgovish", "12345", "jgovish@gmail.com")
+    #     test_user.user_save()
+    #     user_exist = User.user_exist("12345")
+        
+    #     self.assertTrue(user_exist)
 
     def test_save_account(self):
         """
