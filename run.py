@@ -23,7 +23,20 @@ def create_credential(account_name, account_password):
   return new_credential
 
 def save_credential(credential):
-  """function to save new  credential.
+  """
+  Function to save new  credential.
   """
   Credentials.save_account()
-  
+
+def delete_account(credential):
+  """
+  Function to delete a credential.
+  """
+  Credentials.delete_account()
+
+def dislplay_account():
+  """
+  Function that returns all the saved credential.
+  """
+  return Credentials.display_accounts()
+
