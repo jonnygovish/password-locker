@@ -15,7 +15,7 @@ def save_user(user):
   """
   user.user_save()
 
-def create_credential(account_name, account_password):
+def create_credential(account_name,account_username, account_password):
   """
   Function to create a new credential.
   """
@@ -47,3 +47,35 @@ def generate_password():
   password_gen = Credentials.generate_password()
 
   return password_gen
+
+def main():
+  print("Welcome to password locker")
+  print('\n')
+  while True:
+    short_code = input("Use this short codes: cu- create a new user account, ln - login into your account (if you already have a password locker account), ex - exit from password locker \n").lower()
+    
+    if short_code == "ex":
+        print("Come back again.......Goodbye!!")
+        break
+    
+    elif short_code == "cu":
+        print("Sign Up")
+        print('-' * 30)
+        user_name = input("User_name: ")
+        password = input("Password: ")
+        email = input("Email: ")
+        
+        save_user(create_user(user_name,password,email))
+        print('\n')
+        
+        print(f"Hello,{user_name} your account has been created")
+        print('\n')
+        
+        
+    break
+    
+
+
+
+if __name__ == '__main__':
+  main()
