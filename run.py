@@ -40,3 +40,10 @@ def dislplay_account():
   """
   return Credentials.display_accounts()
 
+def generate_password():
+  """
+  Function that generates random password.
+  """
+  password_gen = Credentials.generate_password()
+
+  return password_gen
