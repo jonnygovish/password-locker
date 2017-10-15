@@ -14,6 +14,9 @@ def save_user(user):
   Function to save user.
   """
   user.user_save()
+def display_users():
+   return User.display_users()
+  
 
 def login_user(user_name,password):
   """
@@ -33,7 +36,7 @@ def save_credential(credential):
   """
   Function to save new  credential.
   """
-  Credentials.save_account()
+  credential.save_account()
 
 def delete_account(credential):
   """
@@ -79,8 +82,32 @@ def main():
         print('\n')
         print('-' * 30)
         
+    elif short_code == "d":
+        if display_users():
+            print("Here's a list of the users")
+            print('\n')
+            for user in display_users():
+                print(f"{user.user_name}")
+                print('\n')
+        else:
+            print("There's no users saved yet")
+                
         
-    break
+    elif short_code == "ln":
+        print("Please Enter your User name and your Password to log in")
+        print('-' * 30)
+        user_name = input("User name: ")
+        password = input("password: ")
+        sign_in = login_user(user_name,password)
+        if sign_in == True:
+            print(f"Hey,{user_name}. What would you like to do?")
+            while True:
+                break
+                
+        else:
+            print("Ooops!You dnt have an account with us.Please create an account to proceed")
+            
+#    break
     
 
 
