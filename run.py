@@ -100,9 +100,31 @@ def main():
         password = input("password: ")
         sign_in = login_user(user_name,password)
         if sign_in == True:
-            print(f"Hey,{user_name}. What would you like to do?")
+            print(f"Hey,{user_name},how are you today?. What would you like to do?")
             while True:
-                break
+                short_code = input("Codes: ca - create an account or name of the site your want, da- display the list of your accounts or sites, ex- exit the site \n")
+                if short_code == "ca":
+                    print("Create new credentials")
+                    print('*' * 30)
+                    account_name = input("Account name/ Site name: ")
+                    account_username = input("Site User Name: ")
+                    password_option = input("Please choose between: (ep-enter existing password) or (gp-generate new password) \n")
+                    while True:
+                        if password_option == "ep":
+                            account_password = input("Enter your password (minimum 8 characters): ")
+                            break
+                        elif password_option == "gp":
+                            account_password = generate_password()
+                            break
+                        else:
+                            print("Invalid option")
+                    save_credential(create_credential(account_name,account_username,account_password))
+                    print('*' * 30)
+                    print(f"New created account: \n Account:{account_name}\n User Name:{account_username} \n Password: {account_password}")
+                    print('*' * 30)
+                    
+                    
+#                break
                 
         else:
             print("Ooops!You dnt have an account with us.Please create an account to proceed")
