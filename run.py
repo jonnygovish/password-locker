@@ -44,7 +44,7 @@ def delete_account(credential):
   """
   Credentials.delete_account()
 
-def dislplay_account():
+def display_accounts():
   """
   Function that returns all the saved credential.
   """
@@ -123,7 +123,17 @@ def main():
                     print(f"New created account: \n Account:{account_name}\n User Name:{account_username} \n Password: {account_password}")
                     print('*' * 30)
     
-    elif                
+                elif short_code == "da":
+                    if display_accounts():
+                        print("Here's your list of acoount(s): ")
+                        
+                        print('#' * 30)
+                        for account in display_accounts():
+                            print(f"{account.account_name} \n {account_username}\n {account_password}")
+                        print('#' * 30)
+                    else:
+                        print("Prrrra kata......you dnt have any accounts yet")
+                         
                     
 #                break
                 
