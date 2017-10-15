@@ -53,7 +53,7 @@ class TestCredentials(unittest.TestCase):
         """ 
         set up method to run before each test cases
         """
-        self.new_credential = Credentials("facebook", "jon88")
+        self.new_credential = Credentials("facebook","jonny govish", "jon88")
 
     def test_init(self):
         """
@@ -61,6 +61,7 @@ class TestCredentials(unittest.TestCase):
         """
 
         self.assertEqual(self.new_credential.account_name,"facebook")
+        self.assertEqual(self.new_credential.account_username,"jonny govish")
         self.assertEqual(self.new_credential.account_password,"jon88")
     
     # def test_user_login(self):
@@ -89,7 +90,7 @@ class TestCredentials(unittest.TestCase):
         Test case to test if we can save multiple credential objects.
         """
         self.new_credential.save_account()
-        test_account = Credentials("Twitter","tw89")
+        test_account = Credentials("Twitter","jgovish","tw89")
         test_account.save_account()
         self.assertEqual(len(Credentials.credential_list),2)
 
@@ -98,7 +99,7 @@ class TestCredentials(unittest.TestCase):
         Test case to test if we can remove an account from credential list.
         """
         self.new_credential.save_account()
-        test_credential = Credentials("instagram","4452ks")
+        test_credential = Credentials("instagram","puppah","4452ks")
         test_credential.save_account()
 
         self.new_credential.delete_account()
