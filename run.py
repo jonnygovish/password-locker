@@ -63,7 +63,7 @@ def main():
   print('\n')
   while True:
     print('.'* 60)  
-    short_code = input("Use this short codes: CU- create a new user account, LN - login into your account (if you already have a password locker account), EX - exit from password locker \n").lower()
+    short_code = input("Use this short codes: CU- create a new user account, LN - login into your account (if you already have a password locker account), EX - exit from password locker \n").lower().strip()
     print('.'* 60)
     
     if short_code == "ex":
@@ -105,7 +105,7 @@ def main():
             print(f"Hey,{user_name},how are you today?. What would you like to do?")
             while True:
                 print('.'* 60)
-                short_code = input("Codes: CA - create an account or name of the site your want, DA- display the list of your accounts or sites, EX- exit the site \n").lower()
+                short_code = input("Codes: CA - create an account or name of the site your want, DA- display the list of your accounts or sites, EX- exit the site \n").lower().strip()
                 print('.'* 60)
                 if short_code == "ca":
                     print("Create new credentials")
@@ -113,7 +113,7 @@ def main():
                     account_name = input("Account name/ Site name: ")
                     account_username = input("Site User Name: ")
                     print('.'* 60)
-                    password_option = input("Please choose between: (ep-enter existing password) or (gp-generate new password) \n")
+                    password_option = input("Please choose between: (ep-enter existing password) or (gp-generate new password) \n").strip()
                     print('.'* 60)
                     while True:
                         if password_option == "ep":
@@ -124,6 +124,7 @@ def main():
                             break
                         else:
                             print("Invalid option")
+                            break
                     save_credential(create_credential(account_name,account_username,account_password))
                     print('*' * 30)
                     print(f"New created account: \n Account:{account_name}\n User Name:{account_username} \n Password: {account_password}")
